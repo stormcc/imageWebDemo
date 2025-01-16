@@ -8,12 +8,13 @@ COPY run.sh /root/run.sh
 COPY target/imageWebDemo-0.0.1-SNAPSHOT.jar  /root/imageWebDemo-0.0.1-SNAPSHOT.jar
 #ADD /Users/jimmysong/Downloads/jdk1.8.0_202_x64 /root/
 #RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN echo 'Asia/Shanghai' > /etc/timezone
+#RUN echo 'Asia/Shanghai' > /etc/timezone
 #RUN timedatectl set-timezone Asia/Shanghai
+ENV TZ=Asia/Shanghai
 #COPY run.sh /root/
 #RUN chmod +x /root/run.sh
 WORKDIR /root
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 EXPOSE 18084
 ENTRYPOINT ["/bin/bash", "-c", "/root/run.sh"]
 #ENTRYPOINT /root/run.sh
