@@ -1,4 +1,4 @@
-package org.example.imagewebdemo.demos.web;
+package org.example.imagewebdemo.demos.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

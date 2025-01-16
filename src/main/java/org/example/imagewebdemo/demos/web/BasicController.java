@@ -17,6 +17,9 @@
 package org.example.imagewebdemo.demos.web;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.imagewebdemo.dao.file.ImageWebFileDao;
+import org.example.imagewebdemo.demos.config.ImageWebDemoConfig;
+import org.example.imagewebdemo.demos.dto.ModelServiceQps;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,13 +29,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.example.imagewebdemo.demos.util.JacksonUtil;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Slf4j
-@Controller
+@RestController
 public class BasicController {
+
+    @Resource
+    private ImageWebDemoConfig imageWebDemoConfig;
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
@@ -59,10 +68,6 @@ public class BasicController {
     }
 
     // http://127.0.0.1:8080/html
-    @RequestMapping("/html")
-    public String html() {
-        return "index.html";
-    }
 
     @ModelAttribute
     public void parseUser(@RequestParam(name = "name", defaultValue = "unknown user") String name
