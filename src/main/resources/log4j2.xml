@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration running="info" type="test_log4j2" monitorInterval="1">
+    <properties>
+        <property name="PROJECT_NAME">springWebFluxSpringBoot2</property>
+<!--        <property name="LOG_HOME">/data0/sinaauto_log</property>-->
+<!--        <property name="LOG_PATH">${LOG_HOME}/${PROJECT_NAME}</property>-->
+<!--        <property name="FILE_INFO_NAME">${LOG_PATH}/${PROJECT_NAME}_info</property>-->
+<!--        <property name="FILE_PERFORMANCE_NAME">${LOG_PATH}/${PROJECT_NAME}_performance</property>-->
+<!--        <property name="FILE_ERROR_NAME">${LOG_PATH}/${PROJECT_NAME}_error</property>-->
+    </properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%highlight{%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-24thread][%class.%M():%line] - %msg%xEx%n}" />
+        </Console>
+
+<!--        <RollingRandomAccessFile name="rollingFileInfo" fileName="${FILE_INFO_NAME}.log"-->
+<!--                                 filePattern="${FILE_INFO_NAME}-%d{yyyy-MM-dd}.%i.log.gz">-->
+<!--            <PatternLayout>-->
+<!--                <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-24thread][%class{36}.%M():%line] - %msg%xEx%n</Pattern>-->
+<!--            </PatternLayout>-->
+<!--            <Policies>-->
+<!--                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>-->
+<!--                <SizeBasedTriggeringPolicy size="2048 MB" />-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="30"/>-->
+<!--            <Filters>-->
+<!--                <ThresholdFilter level="info" onMatch="ACCEPT" />-->
+<!--                <ThresholdFilter level="warn" onMatch="ACCEPT" />-->
+<!--                <ThresholdFilter level="error" onMatch="NEUTRAL" />-->
+<!--            </Filters>-->
+<!--        </RollingRandomAccessFile>-->
+
+<!--        <RollingRandomAccessFile name="rollingFileError" fileName="${FILE_ERROR_NAME}.log"-->
+<!--                                 filePattern="${FILE_ERROR_NAME}-%d{yyyy-MM-dd}.%i.log.gz">-->
+<!--            <PatternLayout>-->
+<!--                <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-24thread][%class{36}.%M():%line] - %msg%xEx%n</Pattern>-->
+<!--            </PatternLayout>-->
+<!--            <Policies>-->
+<!--                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>-->
+<!--                <SizeBasedTriggeringPolicy size="2048 MB" />-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="30"/>-->
+<!--            <Filters>-->
+<!--                <ThresholdFilter level="error" onMatch="ACCEPT" />-->
+<!--                <ThresholdFilter level="info" onMatch="NEUTRAL" />-->
+<!--                <ThresholdFilter level="warn" onMatch="NEUTRAL" />-->
+<!--            </Filters>-->
+<!--        </RollingRandomAccessFile>-->
+
+<!--        <RollingRandomAccessFile name="performanceFile" fileName="${FILE_PERFORMANCE_NAME}.log"-->
+<!--                                 filePattern="${FILE_PERFORMANCE_NAME}-%d{yyyy-MM-dd}.%i.log.gz">-->
+<!--            <PatternLayout>-->
+<!--                <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-24thread][%class{36}.%M():%line] - %msg%xEx%n</Pattern>-->
+<!--            </PatternLayout>-->
+<!--            <Policies>-->
+<!--                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>-->
+<!--                <SizeBasedTriggeringPolicy size="2048 MB" />-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="30"/>-->
+<!--            <Filters>-->
+<!--                <ThresholdFilter level="info" onMatch="ACCEPT" />-->
+<!--                <ThresholdFilter level="warn" onMatch="ACCEPT" />-->
+<!--                <ThresholdFilter level="error" onMatch="ACCEPT" />-->
+<!--            </Filters>-->
+<!--        </RollingRandomAccessFile>-->
+    </appenders>
+
+    <loggers>
+        <!-- TimeCost注解的性能日志 -->
+<!--        <Logger name="com.sina.auto.inter.aop.TimeCostAspect"  level="warn" includeLocation="true" additivity="true">-->
+<!--            <AppenderRef ref="performanceFile"/>-->
+<!--        </Logger>-->
+<!--        <Logger name="com.sina.auto.webtest.interceptor.PerformanceMonitorInterceptor"  level="warn" includeLocation="true" additivity="true">-->
+<!--            <AppenderRef ref="performanceFile"/>-->
+<!--        </Logger>-->
+                <Logger name="io.debezium"  level="info" includeLocation="true" additivity="true">
+                    <AppenderRef ref="Console"/>
+                </Logger>
+        <Root level="info" includeLocation="true"  additivity="true" >
+<!--            <AppenderRef ref="rollingFileInfo"/>-->
+<!--            <AppenderRef ref="rollingFileError"/>-->
+            <AppenderRef ref="Console"/>
+        </Root>
+    </loggers>
+</configuration>
+
