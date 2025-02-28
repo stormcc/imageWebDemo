@@ -21,3 +21,5 @@ docker save -o ./imagewebdemo-v20250116.tgz  imagewebdemo:v20250116
 ```
 - 注意一定是导出.tgz文件，而不是.tar.gz文件
 
+### 访问url前缀
+根据环境变量的${CONTEXT_PATH_PREFIX}值，添加到访问前缀。如果没有配置环境变量，使用默认值/demo-image-web。
