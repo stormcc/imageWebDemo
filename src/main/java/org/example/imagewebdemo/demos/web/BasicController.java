@@ -47,6 +47,7 @@ public class BasicController {
     @RequestMapping("/hello")
     @ResponseBody
     public String hello(@RequestParam(name = "name", defaultValue = "unknown user") String name) {
+        log.info("name:{}", name);
         return "Hello " + name;
     }
 
@@ -57,6 +58,7 @@ public class BasicController {
         User user = new User();
         user.setName("theonefx");
         user.setAge(666);
+        log.info("user:{}", JacksonUtil.valueAsString(user));
         return user;
     }
 
@@ -74,6 +76,7 @@ public class BasicController {
             , @RequestParam(name = "age", defaultValue = "12") Integer age, User user) {
         user.setName("zhangsan");
         user.setAge(18);
+        log.info("name:{}, age:{}", name, age);
     }
 
     @RequestMapping(value = "/tokenVerify", method = RequestMethod.POST)

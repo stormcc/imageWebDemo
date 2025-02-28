@@ -15,6 +15,6 @@ ENV TZ=Asia/Shanghai
 #RUN chmod +x /root/run.sh
 WORKDIR /root
 ENV LANG=C.UTF-8
-EXPOSE 18084
-ENTRYPOINT ["/bin/bash", "-c", "/root/run.sh"]
+EXPOSE 18085
+ENTRYPOINT ["/bin/sh", "-c", "/root/run.sh"]
 #ENTRYPOINT /root/run.sh
